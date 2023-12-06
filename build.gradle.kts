@@ -11,30 +11,12 @@ plugins {
 group = "com.legendaries"
 version = "0.0.1-SNAPSHOT"
 
-//publishing {
-//    publications {
-//        create<MavenPublication>("mavenJava") {
-//            from(components["java"])
-//        }
-//    }
-//    repositories {
-//        maven {
-//            name = "GitHubPackages"
-//            url = uri("https://maven.pkg.github.com/jinseon-dev/packages-test")
-//            credentials {
-//                username = project.findProperty("GITHUB_USERNAME").toString()
-//                password = project.findProperty("GITHUB_TOKEN").toString()
-//            }
-//        }
-//    }
-//}
-
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
             groupId = "com.legendaries"
             artifactId = "board"
-            version = "1.0.0-SNAPSHOT"
+            version = "0.0.1-SNAPSHOT"
             from(components["java"])
         }
     }
