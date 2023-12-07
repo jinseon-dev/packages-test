@@ -25,7 +25,7 @@ publishing {
             url = uri("https://maven.pkg.github.com/jinseon-dev/packages-test")
             credentials {
                 username = project.findProperty("GITHUB_USERNAME").toString()
-                password = project.findProperty("GITHUB_TOKEN").toString()
+                password = System.getenv("PACKAGES_TOKEN")
             }
         }
     }

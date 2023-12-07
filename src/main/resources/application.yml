@@ -1,2 +1,22 @@
+name: Use GitHub Token
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  use-token:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Use GitHub Token
+        env:
+          PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+
+
 GITHUB_USERNAME: "jinseon-dev"
-GITHUB_TOKEN: ${GITHUB_TOKEN}
+PACKAGES_TOKEN: ${PACKAGES_TOKEN}
