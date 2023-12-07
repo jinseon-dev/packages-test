@@ -11,26 +11,35 @@ plugins {
 group = "com.legendaries"
 version = "0.0.1-SNAPSHOT"
 
-publishing {
-    publications {
-        create<MavenPublication>("mavenJava") {
-            groupId = "com.legendaries"
-            artifactId = "board"
-            version = "0.0.1-SNAPSHOT"
-            from(components["java"])
-        }
-    }
-    repositories {
-        maven {
-            url = uri("https://maven.pkg.github.com/jinseon-dev/packages-test")
-            credentials {
-                username = project.findProperty("GITHUB_USERNAME").toString()
-                password = System.getenv("PACKAGES_TOKEN")
-            }
+//publishing {
+//    publications {
+//        create<MavenPublication>("mavenJava") {
+//            groupId = "com.legendaries"
+//            artifactId = "board"
+//            version = "0.0.1-SNAPSHOT"
+//            from(components["java"])
+//        }
+//    }
+//    repositories {
+//        maven {
+//            url = uri("https://maven.pkg.github.com/jinseon-dev/packages-test")
+//            credentials {
+//                username = project.findProperty("GITHUB_USERNAME").toString()
+//                password = System.getenv("PACKAGES_TOKEN")
+//            }
+//        }
+//    }
+//}
+repositories {
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/jinseon-dev/packages-test")
+        credentials {
+            username = project.findProperty("GITHUB_USERNAME").toString()
+            password = System.getenv("PACKAGES_TOKEN")
         }
     }
 }
-
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
